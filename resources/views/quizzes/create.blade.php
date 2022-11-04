@@ -2,6 +2,15 @@
 @section('title', 'Quiz 管理 - 問題の追加')
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
   <h1>Quiz 管理 - 問題の追加</h1>
   <form method="POST" action="{{ route('quizzes.index') }}">
     @csrf
